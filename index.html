@@ -1,176 +1,150 @@
 <!DOCTYPE html>
-<!-- Объявляем тип документа HTML5 -->
 <html lang="ru">
-<!-- Открываем корневой элемент страницы, указываем язык — русский -->
 <head>
-  <!-- Начало заголовочной части страницы (не отображается в контенте) -->
   <meta charset="UTF-8">
-  <!-- Устанавливаем кодировку UTF-8 для поддержки русских символов -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Настраиваем viewport для корректного отображения на мобильных устройствах -->
-  <title>Моя страница</title>
-  <!-- Заголовок страницы, отображается во вкладке браузера -->
-  
+  <title>С 8 Марта!</title>
   <style>
-    /* Открываем блок внутренних CSS-стилей */
-    
     body {
-      /* Стили для всего тела страницы */
-      background: linear-gradient(135deg, #667eea, #764ba2);
-      /* Градиентный фон: 135deg — угол наклона, #667eea и #764ba2 — цвета градиента */
-      color: white;
-      /* Цвет текста — белый */
-      font-family: Arial, sans-serif;
-      /* Шрифт: сначала Arial, если нет — любой sans-serif */
       margin: 0;
-      /* Убираем внешние отступы у страницы */
-      padding: 20px;
-      /* Внутренние отступы у страницы — 20 пикселей со всех сторон */
       min-height: 100vh;
-      /* Минимальная высота — 100% высоты экрана (vh = viewport height) */
+      background: linear-gradient(135deg, #ff9a9e, #fecfef, #ffecd2);
+      background-size: 400% 400%;
+      animation: gradient 15s ease infinite;
       display: flex;
-      /* Включаем гибкую вёрстку (Flexbox) для центрирования содержимого */
       flex-direction: column;
-      /* Направление элементов — вертикально (колонка) */
-      align-items: center;
-      /* Выравнивание элементов по горизонтали — по центру */
       justify-content: center;
-      /* Выравнивание элементов по вертикали — по центру */
+      align-items: center;
+      font-family: 'Georgia', serif;
+      overflow: hidden;
     }
-    
-    h1 {
-      /* Стили для заголовка первого уровня */
-      font-size: 2.5rem;
-      /* Размер шрифта — 2.5rem (в 2.5 раза больше базового размера) */
-      margin-bottom: 20px;
-      /* Отступ снизу — 20 пикселей */
-      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-      /* Тень у текста: 2px по X, 2px по Y, 4px размытие, цвет — полупрозрачный чёрный */
+
+    @keyframes gradient {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
     }
-    
-    p {
-      /* Стили для параграфа */
-      font-size: 1.2rem;
-      /* Размер шрифта — 1.2rem */
-      max-width: 600px;
-      /* Максимальная ширина параграфа — 600 пикселей */
+
+    .container {
       text-align: center;
-      /* Выравнивание текста — по центру */
-      margin-bottom: 30px;
-      /* Отступ снизу — 30 пикселей */
-      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
-      /* Тень у текста: 1px по X, 1px по Y, 2px размытие */
+      padding: 40px;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 30px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(10px);
+      max-width: 700px;
+      animation: float 6s ease-in-out infinite;
     }
-    
-    img {
-      /* Стили для изображения */
-      border-radius: 10px;
-      /* Скруглённые углы — 10 пикселей */
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-      /* Тень у картинки: 0 по X, 4px по Y, 15px размытие, полупрозрачный чёрный */
-      max-width: 100%;
-      /* Максимальная ширина — 100% от родителя (адаптивность) */
-      height: auto;
-      /* Высота автоматически подстраивается под ширину */
-      margin-bottom: 30px;
-      /* Отступ снизу — 30 пикселей */
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
     }
-    
-    button {
-      /* Стили для кнопки */
-      background-color: #ff6b6b;
-      /* Цвет фона кнопки — кораллово-красный */
-      color: white;
-      /* Цвет текста кнопки — белый */
-      border: none;
-      /* Убираем рамку у кнопки */
-      padding: 15px 40px;
-      /* Внутренние отступы: 15px сверху/снизу, 40px слева/справа */
-      font-size: 1.1rem;
-      /* Размер шрифта — 1.1rem */
-      border-radius: 25px;
-      /* Скруглённые углы — 25 пикселей (сильное скругление) */
-      cursor: pointer;
-      /* Курсор в виде руки при наведении на кнопку */
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-      /* Тень у кнопки: 0 по X, 4px по Y, 15px размытие */
-      transition: transform 0.2s, box-shadow 0.2s;
-      /* Анимация изменений: 0.2с на transform и box-shadow */
+
+    h1 {
+      font-size: 4rem;
+      color: #e91e63;
+      margin: 0 0 30px 0;
+      text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.2);
+      animation: pulse 2s ease-in-out infinite;
     }
-    
-    button:hover {
-      /* Стили для кнопки при наведении курсора */
-      transform: translateY(-3px);
-      /* Сдвигаем кнопку на 3px вверх (эффект поднятия) */
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
-      /* Усиливаем тень: 6px по Y, 20px размытие */
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
     }
-    
-    button:active {
-      /* Стили для кнопки в момент нажатия */
-      transform: translateY(0);
-      /* Возвращаем кнопку на исходное место */
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-      /* Уменьшаем тень: 2px по Y, 10px размытие */
+
+    .greeting {
+      font-size: 1.5rem;
+      line-height: 1.8;
+      color: #c2185b;
+      text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
+      margin: 0;
+      font-style: italic;
     }
-    
+
+    .flowers {
+      font-size: 4rem;
+      margin: 20px 0;
+      animation: sway 3s ease-in-out infinite;
+    }
+
+    @keyframes sway {
+      0%, 100% { transform: rotate(-5deg); }
+      50% { transform: rotate(5deg); }
+    }
+
+    .heart {
+      font-size: 3rem;
+      color: #e91e63;
+      animation: heartbeat 1.5s ease-in-out infinite;
+    }
+
+    @keyframes heartbeat {
+      0%, 100% { transform: scale(1); }
+      10%, 30% { transform: scale(1.1); }
+      20%, 40% { transform: scale(1); }
+    }
+
+    .petal {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: linear-gradient(45deg, #ff69b4, #ffb6c1);
+      border-radius: 50% 0 50% 0;
+      animation: fall linear infinite;
+    }
+
+    @keyframes fall {
+      0% {
+        transform: translateY(-100vh) rotate(0deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(100vh) rotate(720deg);
+        opacity: 0;
+      }
+    }
   </style>
-  <!-- Конец блока CSS-стилей -->
-  
 </head>
-<!-- Конец заголовочной части -->
 <body>
-  <!-- Начало тела страницы — здесь видимый контент -->
-  
-  <h1>Добро пожаловать!</h1>
-  <!-- Заголовок первого уровня — главный заголовок страницы -->
-  
-  <p>Это пример простой HTML-страницы с основными элементами: текстом, изображением и кнопкой.</p>
-  <!-- Параграф текста — обычный абзац с описанием -->
-  
-  <img src="https://via.placeholder.com/400x200" alt="Изображение-заглушка">
-  <!-- Картинка-заглушка: src — URL изображения, alt — текстовое описание для доступности -->
-  
-  <button type="button" id="colorButton">Нажми меня</button>
-  <!-- Кнопка: type="button" указывает, что это обычная кнопка без отправки формы, id — уникальный идентификатор для работы с JavaScript -->
-  
+  <div class="container">
+    <h1>🌷 С 8 Марта! 🌷</h1>
+    <div class="flowers">💐 🌸 💐</div>
+    <p class="greeting">
+      Дорогие женщины! <br>
+      Вы — украшение этого мира, <br>
+      источник тепла, нежности и красоты. <br>
+      Пусть каждый день приносит радость, <br>
+      глаза сияют от счастья, <br>
+      а сердце наполняется любовью. <br>
+      Будьте любимы, желанны и неповторимы! <br>
+      Весеннего настроения, улыбок и цветов! <br>
+      <span class="heart">💖</span> <br>
+      С праздником! <br>
+      <span class="heart">💖</span>
+    </p>
+    <div class="flowers">🌹 🌺 🌻</div>
+  </div>
+
   <script>
-    // Открываем блок JavaScript-кода
-    
-    // Находим кнопку по её id и сохраняем в переменную colorButton
-    const colorButton = document.getElementById('colorButton');
-    // document.getElementById — метод для поиска элемента по уникальному идентификатору
-    
-    // Добавляем обработчик события «клик» на кнопку
-    colorButton.addEventListener('click', function() {
-      // addEventListener — метод, который «слушает» событие (click = нажатие)
-      // function() { ... } — анонимная функция, которая выполнится при клике
-      
-      // Генерируем случайный цвет в формате RGB
-      const randomColor = `rgb(
-        ${Math.floor(Math.random() * 256)}, 
-        ${Math.floor(Math.random() * 256)}, 
-        ${Math.floor(Math.random() * 256)}
-      )`;
-      // Math.random() — генерирует случайное число от 0 до 1
-      // Math.floor() — округляет число до меньшего целого
-      // * 256 — умножаем, чтобы получить число от 0 до 255 (диапазон цвета)
-      // `rgb(...)` — шаблонная строка для формата цвета RGB
-      
-      // Применяем случайный цвет к фону страницы
-      document.body.style.background = randomColor;
-      // document.body — обращение к элементу body страницы
-      // .style.background — изменение CSS-свойства background
-      
-      // Показываем всплывающее сообщение
-      alert('Ты нажал кнопку!');
-      // alert() — функция для показа модального окна с сообщением
-    });
-    
+    // Создаём падающие лепестки
+    function createPetal() {
+      const petal = document.createElement('div');
+      petal.className = 'petal';
+      petal.style.left = Math.random() * 100 + 'vw';
+      petal.style.animationDuration = (Math.random() * 3 + 5) + 's';
+      petal.style.opacity = Math.random();
+      document.body.appendChild(petal);
+
+      // Удаляем лепесток после падения
+      setTimeout(() => {
+        petal.remove();
+      }, 8000);
+    }
+
+    // Создаём лепестки каждые 300мс
+    setInterval(createPetal, 300);
   </script>
-  <!-- Конец блока JavaScript-кода -->
-  
 </body>
-<!-- Конец тела страницы -->
 </html>
-<!-- Закрываем корневой элемент html -->
